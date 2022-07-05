@@ -223,20 +223,20 @@ https://login.microsoftonline.com/{tenant}/v2.0/adminconsent?client_id=<CLIENT_I
 
 ### Register service principals in Exchange
 
-Once your Azure AD application is consented to by a tenant admin, the tenant admin must register your AAD application's service principal in Exchange via Exchange Online PowerShell. This is enabled by the [`New-ServicePrincipal` cmdlet](/powershell/module/exchange/new-serviceprincipal).
+Once your Azure AD application is consented to by a tenant admin, the tenant admin must register your AAD application's service principal in Exchange via Exchange Online PowerShell. This is enabled by the [`New-MsolServicePrincipal` cmdlet](/powershell/module/msonline/new-msolserviceprincipal).
 
 The following is an example of registering an Azure AD application's service principal in Exchange:
 
 ```text
-New-ServicePrincipal -AppId <APPLICATION_ID> -ServiceId <OBJECT_ID> [-Organization <ORGANIZATION_ID>]
+New-MsolServicePrincipal -AppId <APPLICATION_ID> -ServiceId <OBJECT_ID> [-Organization <ORGANIZATION_ID>]
 ```
 
 The tenant admin can find the service principal identifiers referenced above in your AAD application's enterprise application instance on the tenant. You can find the list of the enterprise application instances on the tenant in the **Enterprise applications** blade in the Azure Active Directory view in Azure Portal.
 
-You can get your registered service principal's identifier using the [`Get-ServicePrincipal` cmdlet](/powershell/module/exchange/get-serviceprincipal).
+You can get your registered service principal's identifier using the [`Get-MsolServicePrincipal` cmdlet](/powershell/module/msonline/get-msolserviceprincipal).
 
 ```text
-Get-ServicePrincipal -Organization <ORGANIZATION_ID>
+Get-MsolServicePrincipal -Organization <ORGANIZATION_ID>
 ```
 
 This identifier is different than the enterprise application instance identifier in the Azure Portal used earlier.
